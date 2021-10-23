@@ -7,6 +7,8 @@ package samancito.delivery;
 
 import Clases.Grafo;
 import Clases.Lista;
+import Clases.Nodos;
+import java.util.Arrays;
 
 /**
  *
@@ -17,7 +19,7 @@ public class SamancitoDelivery {
     static Lista l= new Lista();
     static String tipo;
     static Grafo grafo;
-    static String[] distancias={"1","Pepe","Gónzales"};
+    
     
     public static void main(String[] args) {
         
@@ -35,19 +37,21 @@ public class SamancitoDelivery {
         
         
         
-        //grafo=new Grafo(l, distancias);
+        grafo=new Grafo(l);
         
-        //String[] ruta1={"A","1","3"};
+        String[] ruta1={"A","1","3"};
+        grafo.rellenarFila(ruta1);
         
-        //grafo.rellenarFila(ruta1);
+       
         
-        //String[] ruta2={"B","1","5"};
         
-        //grafo.rellenarFila(ruta2);
-        /*
+        String[] ruta2={"B","1","5"};
+        grafo.rellenarFila(ruta2);
+        
+        
         String[] ruta3={"A","B","2"};
         grafo.rellenarFila(ruta3);
-        */
+        
         
         grafo.Imprimirfila();
         

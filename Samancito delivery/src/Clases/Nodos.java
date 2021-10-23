@@ -15,11 +15,12 @@ public class Nodos {
     private String tipo;
     private String[] informacion; 
 
-    public Nodos(String tip,String[] informacion ){
+    public Nodos(String tip,String[] informacion, String[] distancias ){
         this.next = null;
         //this.distancias = distancias; 
         this.tipo=tip;
         this.informacion=informacion;
+        this.distancias=distancias;
         
           
     }
@@ -49,7 +50,7 @@ public class Nodos {
      * @param element the element to set
      */
     public void setDistancias(String[] element) {
-        this.distancias = element;
+        distancias = element;
     }
 
     /**

@@ -19,17 +19,14 @@ public class Grafo {
     Nodos aux;
     String [] arreglo;
 
-    public Grafo(Lista matrizADYA,String[] distancias) {
+    public Grafo(Lista matrizADYA) {
         
         this.matrizAD=matrizADYA;
         aux=matrizAD.getFirst();
-        this.arreglo=distancias;
         
         
-        while(aux!=null){
-            aux.setDistancias(arreglo);
-            aux=aux.getNext();     
-        }
+        
+        
         
     }
     
