@@ -20,12 +20,12 @@ public class Nodos {
      * @param informacion
      * @param distancias 
      */
-    public Nodos(String tip,String[] informacion, String[] distancias ){
+    public Nodos(String tip,String[] informacion ){
         this.next = null;
         //this.distancias = distancias; 
         this.tipo=tip;
         this.informacion=informacion;
-        this.distancias=distancias;
+        
         
           
     }

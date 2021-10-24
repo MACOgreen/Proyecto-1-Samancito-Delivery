@@ -13,15 +13,15 @@ import java.util.Arrays;
  */
 
 public class Grafo {
-    int numVertices;
-    Lista lnodos;
-    int maxNodos;
+    
+    private Lista lnodos;
+    
     Nodos aux;
-   String[][] matrizAD;
+    private String[][] matrizAD;
     
     /**
      * Description: Constructor de la clase grafo. Para crear un grafo se tiene que pasar una lista que contiene los nodos 
-     * del grafo. Cada nodo tiene asociado una arreglo para representar las filas de la matriz de adyacencia. 
+     * del grafo. Cada nodo tiene asociado una arreglo donde iran las distancias con respecto a otros nodos. 
      * @param matrizADYA 
      * @author Manuel Caceres
      */
@@ -29,35 +29,37 @@ public class Grafo {
         
         this.lnodos=listaNodos;
         aux=lnodos.getFirst();
+        while(aux!=null){
+            aux.setDistancias(new String[lnodos.getSize()]);
+            
+            for(int i=0; i<lnodos.getSize();i++){
+                aux.getDistancias()[i]="0";
+            }
+            
+            aux=aux.getNext();
+        }
         
     }
     /**
-     * Description: Procedimiento que me permite ubicar elementos dentro de la matriz de adyacencia. Recibe como parametro una ruta 
-     * del Txt en forma de arreglo, y utiliza esa informacion para ubicar las distancias entre nodos en la matriz.
+     * Description: Procedimiento que me permite ubicar elementos dentro de los arreglos de cada nodo. Recibe como parametro una ruta 
+     * del Txt en forma de arreglo, y utiliza esa informacion para ubicar las distancias entre nodos.
      * @param rutas 
      * @author Manuel Caceres
      */
     public void rellenarFila(String[] rutas){
         String identificador= rutas[0];
-        aux=lnodos.getFirst();
+        aux=getLnodos().getFirst();
         
         while(aux!=null){
             
             if(identificador.equals(aux.getInformacion()[0])){
-                Nodos aux2=lnodos.getFirst();
+                Nodos aux2=getLnodos().getFirst();
                 int indice=0;
                 
                 while(aux2!=null){
                     if(rutas[1].equals(aux2.getInformacion()[0])){
-                        aux.getDistancias()[indice]=rutas[2];
-                        
+                        aux.getDistancias()[indice]=rutas[2];   
                     }
-                    /*
-                    if(aux.getDistancias()[indice]==null){
-                        aux.getDistancias()[indice]="0";
-                    }
-                    */
-                    
                     aux2=aux2.getNext();
                     indice++;
                 }           
@@ -65,11 +67,14 @@ public class Grafo {
             aux=aux.getNext();  
         }        
     }
-    
+    /**
+     * Description: Procedimiento que utiliza los arreglos de cada nodo para crear la matriz de adyacencia del grafo.
+     * @author: Manuel Caceres
+     */
     public void CrearMatrizAD(){
-        this.matrizAD= new String[lnodos.getSize()][lnodos.getSize()];
-        this.aux=lnodos.getFirst();
-        for(int i=0;i <lnodos.getSize();i++){
+        this.matrizAD= new String[getLnodos().getSize()][getLnodos().getSize()];
+        this.aux=getLnodos().getFirst();
+        for(int i=0;i <getLnodos().getSize();i++){
             matrizAD[i]=aux.getDistancias();
             aux=aux.getNext();
         }
@@ -82,9 +87,23 @@ public class Grafo {
      * @author Manuel Caceres
      */
     public void ImprimirMatriz(){
-        for(int i=0; i< lnodos.getSize();i++){
-            System.out.println(Arrays.toString(matrizAD[i]));
+        for(int i=0; i< getLnodos().getSize();i++){
+            System.out.println(Arrays.toString(getMatrizAD()[i]));
         }        
+    }
+
+    /**
+     * @return the lnodos
+     */
+    public Lista getLnodos() {
+        return lnodos;
+    }
+
+    /**
+     * @return the matrizAD
+     */
+    public String[][] getMatrizAD() {
+        return matrizAD;
     }
     
     

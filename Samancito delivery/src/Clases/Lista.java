@@ -83,9 +83,9 @@ public class Lista {
     
     public void addAtTheEnd(String tipo, String[] informacion){
         
-        String[] distancias= new String[3];
+        //String[] distancias= new String[3];
         
-        Nodos newNodo= new Nodos( tipo, informacion, distancias); 
+        Nodos newNodo= new Nodos( tipo, informacion); 
         
         if(this.isEmpty()){
             first=Last=newNodo;
