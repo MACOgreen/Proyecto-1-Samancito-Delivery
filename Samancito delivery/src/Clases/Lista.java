@@ -73,6 +73,13 @@ public class Lista {
         this.size=0;
     }
     //Agregar elemento al final de la lista. Crea un nodo nuevo automaticamente. 
+    /**
+     * Description: Procedimiento agrega nodos al final de una lista. El procedimiento necesita el parametro tipo y el 
+     * parametro informacion para crear el nodo que se va a agregar.
+     * 
+     * @param tipo
+     * @param informacion 
+     */
     
     public void addAtTheEnd(String tipo, String[] informacion){
         
@@ -90,7 +97,9 @@ public class Lista {
         size++;
         
     }
-    
+    /**
+     * Description: Borra el nodo que esta al comienzo de la lista.
+     */
     public void DeleteAtTheStart(){
         if(!this.isEmpty()){
             if(size==1){
@@ -101,7 +110,9 @@ public class Lista {
             }
         }
     }
-    ///Procedimiento para imprimir
+    /**
+     * Description: Procedimiento para imprimir la lista .
+     */
     public void print(){
         Nodos temp=first;
         if(this.isEmpty()){
@@ -113,8 +124,12 @@ public class Lista {
         }
     }
     
-    ///Procedimiento para modificar cualquiqer elemento en la lista
     
+    /**
+     * Description: Procedimiento para modificar cualquiqer elemento en la lista.
+     * @param posicion
+     * @param nuevoValor 
+     */
     public void modificar(int posicion,String[] nuevoValor){  // Falta asegurarla de errores
         Nodos temp=first;
         int i=0;
@@ -127,7 +142,10 @@ public class Lista {
           
     }
     
-    
+    /**
+     * Description: Procedimiento para eliminar cualquier elemento de la lista.
+     * @param posicion 
+     */
     public void Eliminar(int posicion){ // Falta asegurarla de errores
         Nodos temp=first;
         Nodos temp2=first;
@@ -146,7 +164,11 @@ public class Lista {
         }    
     }
     
-    
+    /**
+     * Description: Metodo para obtener cualquier nodo de la lista. 
+     * @param posicion
+     * @return 
+     */
     
     
     public Nodos Obtener(int posicion){ // Falta asegurarla de errores

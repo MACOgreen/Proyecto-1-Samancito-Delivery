@@ -14,7 +14,12 @@ public class Nodos {
     private String[] distancias;
     private String tipo;
     private String[] informacion; 
-
+    /**
+     * Description: Constructor del nodo.  Un nodo va a tener un tipo, informacion, y distancias.
+     * @param tip
+     * @param informacion
+     * @param distancias 
+     */
     public Nodos(String tip,String[] informacion, String[] distancias ){
         this.next = null;
         //this.distancias = distancias; 

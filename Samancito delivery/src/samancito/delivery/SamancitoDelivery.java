@@ -53,11 +53,12 @@ public class SamancitoDelivery {
         grafo.rellenarFila(ruta3);
         
         
-        grafo.Imprimirfila();
+        grafo.CrearMatrizAD();
+        grafo.ImprimirMatriz();
         
         
         
-        //Arreglar lo del arreglo de distancias que es el mismo para todos los nodos.
+        
         
     }
     
