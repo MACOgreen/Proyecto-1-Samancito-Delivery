@@ -9,11 +9,11 @@ package Clases;
  *
  * @author mani
  */
-public class Recorridos {
+public  class   Recorridos {
     
     
     
-    public void recorrerProfundidad(Grafo g,int v, boolean [] visitados){
+    public   void recorrerProfundidad(Grafo g,int v, boolean [] visitados){
         visitados[v]=true;
         
         System.out.println(g.getLnodos().Obtener(v).getInformacion()[0]);
@@ -25,23 +25,29 @@ public class Recorridos {
         }
         
     }
-    
-    public void profundidad(Grafo g){
-        /*
+    /**
+     * Description: Procedimiento que recorre el grafo por recorrido de profundidad. Va visitando un nodo uno por uno. 
+     * @param g   " Grafo que quiero recorrer "
+     * @author: Manuel Caceres
+     */
+    public  void profundidad(Grafo g){
+        
         boolean visitados[]= new boolean [g.getLnodos().getSize()];
         for (int i = 0; i < g.getLnodos().getSize(); i++){
             visitados [i] = false;
         }
-        */
-        System.out.println("Diosdado");
-        /*
+        
+        
+        
         for (int i = 0; i < g.getLnodos().getSize(); i++){
             if (!visitados [i]){
                 recorrerProfundidad (g, i, visitados);
             }
         }
-        */
+        
     }
+    
+    
     
     
     
