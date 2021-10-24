@@ -9,6 +9,8 @@ import Clases.Grafo;
 import Clases.Lista;
 import Clases.Nodos;
 import java.util.Arrays;
+import Clases.Recorridos;
+
 
 /**
  *
@@ -19,7 +21,7 @@ public class SamancitoDelivery {
     static Lista l= new Lista();
     static String tipo;
     static Grafo grafo;
-    
+    static Recorridos reco;
     
     public static void main(String[] args) {
         
@@ -56,6 +58,7 @@ public class SamancitoDelivery {
         grafo.CrearMatrizAD();
         grafo.ImprimirMatriz();
         
+        reco.profundidad(grafo);
         
         
         

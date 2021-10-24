@@ -107,5 +107,13 @@ public class Grafo {
     }
     
     
+   public boolean existeArista(int origen, int destino){
+        if(matrizAD[origen][destino].equals("0")){
+            return false;
+        }
+        else{
+            return true;
+        }
+   }
     
 }

@@ -176,6 +176,7 @@ public class Lista {
         Nodos temp=first;
         
         while(i!=posicion){
+            
             temp=temp.getNext();
             i++;
         }         
