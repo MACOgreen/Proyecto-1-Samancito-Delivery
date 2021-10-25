@@ -60,7 +60,7 @@ public class SamancitoDelivery {
         re.profundidad(grafo);
         
         
-        
+        re.amplitud(grafo);
         
     }
     

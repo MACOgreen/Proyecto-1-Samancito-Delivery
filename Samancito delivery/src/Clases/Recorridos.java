@@ -28,7 +28,7 @@ public  class   Recorridos {
     /**
      * Description: Procedimiento que recorre el grafo por recorrido de profundidad. Va visitando un nodo uno por uno. 
      * @param g   " Grafo que quiero recorrer "
-     * @author: Manuel Caceres
+     * 
      */
     public  void profundidad(Grafo g){
         
@@ -45,6 +45,45 @@ public  class   Recorridos {
             }
         }
         
+    }
+    /**
+     * Description: se elige un vértice no visitado v, como punto de partida y se pasa a visitar cada uno de sus vértices 
+     * adyacentes, para continuar posteriormente visitando los adyacentes a estos últimos y así sucesivamente hasta que no 
+     * se puedan alcanzar más vértices.
+     * @param g 
+     */
+    public void amplitud(Grafo g){
+        Cola cola= new Cola();
+        boolean visitados[]= new boolean[g.getLnodos().getSize()];
+         int v;
+         String no;
+         
+         
+         for(int i=0;i<g.getLnodos().getSize();i++){
+             visitados[i]=false;
+         }
+         
+         for(int i=0; i<g.getLnodos().getSize();i++){
+             if(!visitados[i]){
+                 cola.encolar(i);
+                 visitados[i]=true;
+                 
+                 
+                 while(!cola.es_vacia()){
+                     v =cola.desencolar();
+                     no=g.getLnodos().Obtener(v).getInformacion()[0];
+                     System.out.println(no);
+                     
+                     
+                     for(int j=0;j<g.getLnodos().getSize();j++){
+                         if((v!=j)&&(g.existeArista(v, j)&&(!visitados[j]) )){
+                             cola.encolar(j);
+                             visitados[j]=true;
+                         }
+                     }
+                 }
+             }
+         }
     }
     
     
