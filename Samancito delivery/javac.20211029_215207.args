@@ -1,0 +1,18 @@
+-d
+"C:\\Users\\aleja\\Desktop\\Proyecto-1-Samancito-Delivery\\Samancito delivery\\build\\classes"
+-classpath
+"C:\\Users\\aleja\\Desktop\\Proyecto-1-Samancito-Delivery\\Samancito delivery\\build\\classes"
+-sourcepath
+"C:\\Users\\aleja\\Desktop\\Proyecto-1-Samancito-Delivery\\Samancito delivery\\src"
+-target
+11
+-encoding
+UTF-8
+-g
+-processorpath
+"C:\\Users\\aleja\\Desktop\\Proyecto-1-Samancito-Delivery\\Samancito delivery\\build\\empty"
+-s
+"C:\\Users\\aleja\\Desktop\\Proyecto-1-Samancito-Delivery\\Samancito delivery\\build\\generated-sources\\ap-source-output"
+-source
+11
+"C:\\Users\\aleja\\Desktop\\Proyecto-1-Samancito-Delivery\\Samancito delivery\\src\\samancito\\delivery\\SamancitoDelivery.java"
