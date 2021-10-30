@@ -2,9 +2,11 @@
 package samancito.delivery;
 
 
-import Clases.Grafo;
-import Clases.Lista;
-import Clases.Recorridos;
+import ClasesGrafo.Grafo;
+import ClasesGrafo.Lista;
+import ClasesGrafo.Recorridos;
+import Lectura.*;
+
 
 
 /**
@@ -13,13 +15,64 @@ import Clases.Recorridos;
  */
 public class SamancitoDelivery {
 
+    
+    
+    
+    /*
     static Lista l= new Lista();
     static String tipo;
     static Grafo grafo;
     static Recorridos re= new Recorridos();
-    
+    */
     public static void main(String[] args) {
+        ListDatos pedidos;
+        Grafo grafo;
         
+        
+        Base_de_Datos bdatos= new Base_de_Datos();
+        
+        //Lista de pedidos
+        pedidos=bdatos.datos();
+        //Grafo obtenidor de leer la base de datos. 
+        grafo=bdatos.getGrafo();
+        
+        grafo.ImprimirMatriz();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
         tipo="Restaurante";
         String[] informacion = {"A","Pizpa","Pizza", "Margarita","Pasticho","Refresco"};
         l.addAtTheEnd(tipo, informacion);
@@ -58,7 +111,7 @@ public class SamancitoDelivery {
         
         
         re.amplitud(grafo);
-
+        */
         
     }
     

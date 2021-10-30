@@ -1,10 +1,11 @@
 
-package Clases;
+package Lectura;
 
+import Lectura.NodoArreglo;
 import java.util.Arrays;
 
 
-class ListDatos {
+public class ListDatos {
     private NodoArreglo first;
     private NodoArreglo last;
     private int size;
