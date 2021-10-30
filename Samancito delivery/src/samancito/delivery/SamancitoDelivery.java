@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package samancito.delivery;
+
 
 import Clases.Grafo;
 import Clases.Lista;
@@ -61,6 +58,7 @@ public class SamancitoDelivery {
         
         
         re.amplitud(grafo);
+
         
     }
     
