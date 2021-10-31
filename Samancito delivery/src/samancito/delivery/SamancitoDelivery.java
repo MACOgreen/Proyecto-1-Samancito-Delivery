@@ -6,6 +6,7 @@ import ClasesGrafo.Grafo;
 import ClasesGrafo.Lista;
 import ClasesGrafo.Recorridos;
 import Lectura.*;
+import Mostrargrafo.mostrarG;
 
 
 
@@ -27,7 +28,7 @@ public class SamancitoDelivery {
     public static void main(String[] args) {
         ListDatos pedidos;
         Grafo grafo;
-        
+        mostrarG mostrar;
         
         Base_de_Datos bdatos= new Base_de_Datos();
         
@@ -36,7 +37,9 @@ public class SamancitoDelivery {
         //Grafo obtenidor de leer la base de datos. 
         grafo=bdatos.getGrafo();
         
-        grafo.ImprimirMatriz();
+        mostrar= new mostrarG(grafo);
+        
+        //grafo.ImprimirMatriz();
         
         
         
