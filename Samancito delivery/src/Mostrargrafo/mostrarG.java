@@ -9,6 +9,7 @@ import ClasesGrafo.Grafo;
 import ClasesGrafo.Lista;
 import ClasesGrafo.Nodos;
 import Lectura.*;
+import java.awt.Color;
 import java.lang.Math;
 
 public class mostrarG {
@@ -26,13 +27,24 @@ public class mostrarG {
     public int getRandomNumber(int min, int max, int[] arreglo) {
         boolean ciclo=true;
         int numero=0;
+        int diferencia;
         
         while(ciclo){
             numero=(int) ((Math.random() * (max - min)) + min);
             for(int i =0;i<arreglo.length;i++){
+                diferencia= numero-arreglo[i];
+                
+                if(diferencia<0){
+                    diferencia=diferencia*-1;
+                    if(diferencia<70){
+                        numero=numero+100;
+                    }
+                        
+                }
                 if(numero==arreglo[i]){
                     ciclo=true;
                 }
+                
                 else{
                     ciclo=false;
                 }      
@@ -56,14 +68,16 @@ public class mostrarG {
         coordenadasY= new int[lno.getSize()];
         coordenadasY[0]=0;
         
-        GraphDraw frame = new GraphDraw("Test Window");
-	frame.setSize(2000,2000);
+        GraphDraw frame = new GraphDraw("Grafo");
+        frame.setResizable(false);
+	frame.setSize(1300,1300);
+        
 	frame.setVisible(true);
         
         while(aux!=null){
             
-            x=getRandomNumber(50, 900,coordenadasX);
-            y=getRandomNumber(50, 900,coordenadasY);
+            x=getRandomNumber(50, 1200,coordenadasX);
+            y=getRandomNumber(50,860,coordenadasY);
             
             frame.addNode(aux.getInformacion()[0],x,y);
             

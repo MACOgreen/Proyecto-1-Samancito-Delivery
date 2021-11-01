@@ -10,11 +10,13 @@ public class NodoArreglo {
     private String [] l;
     private NodoArreglo next;
     private NodoArreglo previous;
+    private int numOrden;
 
     public NodoArreglo(String [] l) { 
         this.l = l;
         this.next = null;
         this.previous = null;
+        this.numOrden=0;
     }
 
     public String [] getNumber() {
@@ -39,5 +41,19 @@ public class NodoArreglo {
 
     public void setPrevious(NodoArreglo previous) {
         this.previous = previous;
+    }
+
+    /**
+     * @return the numOrden
+     */
+    public int getNumOrden() {
+        return numOrden;
+    }
+
+    /**
+     * @param numOrden the numOrden to set
+     */
+    public void setNumOrden(int numOrden) {
+        this.numOrden = numOrden;
     }
 }

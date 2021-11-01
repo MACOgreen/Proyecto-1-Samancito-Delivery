@@ -17,7 +17,7 @@ public class Grafo {
     private Lista lnodos;
     
     Nodos aux;
-    private String[][] matrizAD;
+    private  String[][] matrizAD;
     
     /**
      * Description: Constructor de la clase grafo. Para crear un grafo se tiene que pasar una lista que contiene los nodos 
@@ -78,6 +78,7 @@ public class Grafo {
             matrizAD[i]=aux.getDistancias();
             aux=aux.getNext();
         }
+        
     
     }
     /**

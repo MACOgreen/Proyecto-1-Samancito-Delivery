@@ -205,5 +205,23 @@ public class Lista {
         
         
     }
-    */   
+    */ 
+    
+    public int posicion(String identificador){
+        Nodos aux=this.first;
+        int numero=0;
+        
+        int posicion=0;
+        while(aux!=null){
+            if(identificador.equals(aux.getInformacion()[0])){
+                numero=posicion;   
+                posicion++;
+                break;
+            }
+            posicion++;   
+            aux=aux.getNext();
+        }
+        
+        return numero;
+    }
 }

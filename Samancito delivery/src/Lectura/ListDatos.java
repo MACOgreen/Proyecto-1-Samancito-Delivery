@@ -46,6 +46,7 @@ public class ListDatos {
     
     public void addAtTheStart(String [] l) { //Agrega un nodo al inicio de la lista
         NodoArreglo node = new NodoArreglo(l);
+        node.setNumOrden(this.size+1);
         if (this.isEmpty()) {
             this.first = this.last = node;
         } else {
@@ -60,10 +61,10 @@ public class ListDatos {
         NodoArreglo node = this.first;
         String list = "";
         while (node != null) {
-            list += node.getNumber() + ",";
+            System.out.println( Arrays.toString(node.getNumber()));
             node = node.getNext();
         }
-        System.out.println(list);
+       
     }
     
     

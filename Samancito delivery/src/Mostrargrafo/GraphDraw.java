@@ -31,6 +31,7 @@ public class GraphDraw extends JFrame {
     public GraphDraw(String name) { //Construct with label
 	this.setTitle(name);
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
 	nodes = new ArrayList<Node>();
 	edges = new ArrayList<edge>();
 	width = 30;
@@ -71,8 +72,8 @@ public class GraphDraw extends JFrame {
     }
     /*
     public void medio(int x1, int y1, int x2, int y2){
-        xmedio=x2;
-        ymedio=y2;
+        xmedio=(x2-x1)/2;
+        ymedio=(y2-y1)/2;
         
         if(xmedio<0){
             xmedio=xmedio*(-1);
@@ -83,10 +84,11 @@ public class GraphDraw extends JFrame {
     }
     */
     
+    
     public void paint(Graphics g) { // draw the nodes and edges
 	FontMetrics f = g.getFontMetrics();
 	int nodeHeight = Math.max(height, f.getHeight());
-
+        
 	g.setColor(Color.YELLOW);
 	for (edge e : edges) {
             
@@ -113,12 +115,13 @@ public class GraphDraw extends JFrame {
         for(int k=0;k<edges.size();k++){
             edge e=edges.get(k);
             this.medio(nodes.get(e.i).x, nodes.get(e.i).y, nodes.get(e.j).x, nodes.get(e.j).y);
-            
+            g.setColor(Color.black);
             g.drawString(e.peso, xmedio ,
 			 ymedio );
             
         }
         */
+        
     }
 
     

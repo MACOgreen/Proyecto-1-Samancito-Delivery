@@ -7,6 +7,7 @@ import ClasesGrafo.Lista;
 import ClasesGrafo.Recorridos;
 import Lectura.*;
 import Mostrargrafo.mostrarG;
+import Roles.Driver;
 
 
 
@@ -29,15 +30,24 @@ public class SamancitoDelivery {
         ListDatos pedidos;
         Grafo grafo;
         mostrarG mostrar;
+        Driver driv;
         
         Base_de_Datos bdatos= new Base_de_Datos();
         
         //Lista de pedidos
         pedidos=bdatos.datos();
-        //Grafo obtenidor de leer la base de datos. 
+       
+        //Grafo obtenido de leer la base de datos. 
         grafo=bdatos.getGrafo();
         
-        mostrar= new mostrarG(grafo);
+        
+        
+        driv=new Driver(grafo,pedidos);
+        driv.mostrarPedidos();
+        
+        driv.RutaMcortaDijkstra();
+        //mostrar= new mostrarG(grafo);
+        
         
         //grafo.ImprimirMatriz();
         

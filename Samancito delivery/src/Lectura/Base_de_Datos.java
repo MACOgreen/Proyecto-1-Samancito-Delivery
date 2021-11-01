@@ -69,9 +69,11 @@ public class Base_de_Datos {
                         } else if (datos_split[i].equals("Pedidos")) {
                             int j = i+1;
                             while (!datos_split[j].equals("Rutas")) {
-                                pedidos.addAtTheStart(datos_split);
+                                String[] alldatos = datos_split[j].split(",");
+                                pedidos.addAtTheStart(alldatos);
                                 j++;
                             }
+                            
                             //pedidos.printList();
                         } else if (datos_split[i].equals("Rutas")){
                             
@@ -88,6 +90,7 @@ public class Base_de_Datos {
                                 getGrafo().rellenarFila(alldatos);
                                 j++;
                             }
+                            
                             getGrafo().CrearMatrizAD();
                         }
 
