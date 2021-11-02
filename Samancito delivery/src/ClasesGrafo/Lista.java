@@ -146,6 +146,8 @@ public class Lista {
      * Description: Procedimiento para eliminar cualquier elemento de la lista.
      * @param posicion 
      */
+    
+    
     public void Eliminar(int posicion){ // Falta asegurarla de errores
         Nodos temp=first;
         Nodos temp2=first;

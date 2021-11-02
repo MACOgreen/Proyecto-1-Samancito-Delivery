@@ -67,5 +67,36 @@ public class ListDatos {
        
     }
     
+    public void Eliminar(int posicion){ // Falta asegurarla de errores
+         NodoArreglo temp=first;
+         NodoArreglo temp2=first;
+        int i=0;
+        
+        if(i==posicion){
+            DeleteAtTheStart();
+        }else{
+            while(i!=posicion){
+                temp2=temp;         //Posicion anterior del nodo que quiero eliminar
+                temp=temp.getNext(); //Posicion del nodo que quiero eliminar
+                i++;      
+            }
+            temp2.setNext(temp.getNext()); //Modifico el enlace del nodo anterior para que se salte el nodo que quiero eliminar.
+            size--;
+        }    
+    }
+    
+    public void DeleteAtTheStart(){
+        if(!this.isEmpty()){
+            if(size==1){
+                this.isEmpty();
+            }else{
+                first=first.getNext();
+                size--;
+            }
+        }
+    }
+    
+    
+    
     
 }

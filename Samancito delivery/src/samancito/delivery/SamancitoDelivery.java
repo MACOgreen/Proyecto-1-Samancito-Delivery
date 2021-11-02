@@ -48,9 +48,10 @@ public class SamancitoDelivery {
         driv.RutaMcortaDijkstra();
         //mostrar= new mostrarG(grafo);
         
+        //driv.rutaMcortaFloydM();
         
         //grafo.ImprimirMatriz();
-        
+        driv.mostrarPedidos();
         
         
         
