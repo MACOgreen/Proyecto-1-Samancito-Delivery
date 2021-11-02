@@ -36,6 +36,10 @@ public class Nodos {
     public Nodos getNext() {
         return next;
     }
+    
+    public Nodos setNext() {
+        return next;
+    }
 
     /**
      * @param next the next to set
