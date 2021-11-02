@@ -17,13 +17,15 @@ public class Base_de_Datos {
 
     public ListDatos datos() {
         ListDatos pedidos = new ListDatos();
+        ListDatos restaurantes = new ListDatos();
+        //ListDatos clientes = new ListDatos();
         String line;
         String samancito_txt = "";
         String path = "test\\samancito.txt";
         File file = new File(path);
         
         //Objetos para grafos
-        Lista l= new Lista();
+        Lista l = new Lista();
         String tipo;
         
         //
@@ -49,8 +51,9 @@ public class Base_de_Datos {
                             
                             while (!datos_split[j].equals("Clientes")) {
                                 String[] alldatos = datos_split[j].split(",");
-                                //printArreglo(alldatos);
                                 l.addAtTheEnd(tipo, alldatos);
+                                //printArreglo(alldatos);
+                                //restaurantes.addAtTheStart(datos_split);
                                 j++;
                             }
 
@@ -60,8 +63,9 @@ public class Base_de_Datos {
                             
                             while (!datos_split[j].equals("Pedidos")) {
                                 String[] alldatos = datos_split[j].split(",");
-                                //printArreglo(alldatos);
                                 l.addAtTheEnd(tipo, alldatos);
+                                //l.addAtTheEnd(tipo, alldatos);
+                                //clientes.addAtTheStart(datos_split);
                                 j++;
                             }
                             
@@ -69,6 +73,7 @@ public class Base_de_Datos {
                         } else if (datos_split[i].equals("Pedidos")) {
                             int j = i+1;
                             while (!datos_split[j].equals("Rutas")) {
+                                String[] alldatos = datos_split[j].split(",");
                                 pedidos.addAtTheStart(datos_split);
                                 j++;
                             }
@@ -100,6 +105,7 @@ public class Base_de_Datos {
             JOptionPane.showMessageDialog(null, "Error al leer");
         }
         return pedidos;
+        
 
     }
 
