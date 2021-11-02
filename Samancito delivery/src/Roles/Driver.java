@@ -16,7 +16,7 @@ public class Driver {
     int[] resultado;
     Grafo  g;
     private String[][] matriz;
-    private String[][] matriz2;
+    private int[][] matriz2;
     private String[][] matriz3;
     String m;
     ListDatos pedidos;
@@ -45,16 +45,16 @@ public class Driver {
     
     public void copiarMatriz(){
         matriz=g.getMatrizAD();
-        matriz2=new String[g.getLnodos().getSize()][g.getLnodos().getSize()];
+        matriz2=new int[g.getLnodos().getSize()][g.getLnodos().getSize()];
         matriz3=new String[g.getLnodos().getSize()][g.getLnodos().getSize()];
         for(int i=0; i<g.getLnodos().getSize();i++){
             for(int j=0; j<g.getLnodos().getSize();j++){
                 if(matriz[i][j].equals("0")){
                     matriz3[i][j]="99999";
-                    matriz2[i][j]=matriz[i][j];
+                    matriz2[i][j]=99999;
                 }
                 else{
-                    matriz2[i][j]=matriz[i][j];
+                    matriz2[i][j]=Integer.parseInt(matriz[i][j]);
                     matriz3[i][j]=matriz[i][j];
                 }
             }
@@ -71,7 +71,7 @@ public class Driver {
         nodo=pedidos.getFirst();
         
         //El usuario seleciona el numero de orden
-        numeroOrden=1;
+        numeroOrden=3;
         //
         
         //Proceso para identifcar nodo origen y destino
@@ -92,108 +92,37 @@ public class Driver {
          destino=g.getLnodos().posicion(desti);
         //
         //Empiezo a recorrer la matriz de adyacencia ( Empieza Dijkstra)
-        int distancia=0;
-        boolean ciclo= true;
-        boolean visi=false;
-        int contador=1;
-        int contador2=0;
-        int comparador=100;
-        int caminos=0;
-        etiqueta[0]=100;
-        etiqueta[1]=origen;
         
-        
+       
         resultado= new int[g.getLnodos().getSize()];
         resultado[0]=origen;
         
-        while(ciclo){
-            
-            for(int i=0;i< g.getLnodos().getSize();i++){
-                    if(!matriz2[origen][i].equals("0")){
-                        caminos++;
-                        for(int j=0;j<resultado.length;j++){
-                            if(resultado[j]==i){
-                                visi=true;
-                                break;
-                            }
-                            else{
-                                visi=false;
-                            }
-                        }
-                        if(!visi){
-                        
-                            distancia=Integer.parseInt(matriz2[origen][i]);
-                            if(distancia<=comparador){
-                                comparador=distancia;
-                                etiqueta[0]=etiqueta[0]+distancia;
-                                etiqueta[1]=i;
-                                        
-                            
-                            }
-                        }
-                    }
-            } 
-                //System.out.println(Arrays.toString(resultado));
-                //System.out.println(etiqueta[1]);
-                
-                for(int i=0;i<  resultado.length;i++){
-                    if(resultado[i]==etiqueta[1]){
-                        
-                        if(i==0){
-                            etiqueta[1]=resultado[i];
-                            matriz2[origen][etiqueta[1]]="0";
-                            resultado= new int[g.getLnodos().getSize()];
-                            contador=0;
-                            break;
-                        }
-                        //System.out.println(Arrays.toString(resultado));
-                        //System.out.println(etiqueta[1]);
-                        
-                        etiqueta[0]=etiqueta[0]-distancia;
-                        //System.out.println(origen);
-                        matriz2[origen][etiqueta[1]]="0";
-                        etiqueta[1]=resultado[i-1];
-                        contador=i-1;
-                        
-                        break;
-                        
-                    }    
-                }
-                
-                origen=etiqueta[1];
-                comparador=100;
-                resultado[contador]=origen;
-                contador++;
-            
-                if(origen==destino){
-                    ciclo=false;
-                }
-            
-                if(contador==g.getLnodos().getSize()){
-                   
-                    origen=resultado[0];
-                    //System.out.println(Arrays.toString(resultado));
-                
-                    resultado=new int[g.getLnodos().getSize()];
-                    resultado[0]=origen;
-                    contador=1;
-                    
-                
-                    
-                } 
-            }
+        int path_array[] = new int[matriz2[0].length];
+        Boolean sptSet[] = new Boolean[matriz2[0].length];
+        for (int i = 0; i <matriz2[0].length ; i++) { 
+            path_array[i] = Integer.MAX_VALUE; 
+            sptSet[i] = false; 
+        } 
+        path_array[origen] = 0;
         
-        System.out.print("[ ");
-        for(int i=0;i<resultado.length;i++){
-            if(resultado[i]==destino){
-                System.out.println(g.getLnodos().Obtener(destino).getInformacion()[0]+ " ]");
-                break;
-            }
-            System.out.print(g.getLnodos().Obtener(resultado[i]).getInformacion()[0]+"---> " );
-        }
+        for (int count = 0; count < matriz2[0].length - 1; count++) { 
+            // call minDistance method to find the vertex with min distance
+            int u = minDistance(path_array, sptSet); 
+              // the current vertex u is processed
+            sptSet[u] = true; 
+        for (int v = 0; v < matriz2[0].length; v++) 
+   
+                // if vertex v not in sptset then update it  
+                if (!sptSet[v] && matriz2[u][v] != 0 && path_array[u] != 
+                            Integer.MAX_VALUE && path_array[u] 
+                            + matriz2[u][v] < path_array[v]) 
+                            path_array[v] = path_array[u] + matriz2[u][v]; 
+        } 
         
-         //System.out.println(etiqueta[0]);
-        //System.out.println(Arrays.toString(resultado));
+    
+        
+        System.out.println("La ruta más corta es de: "+ path_array[destino] +" kilometros.");
+            
         
         
     }  
@@ -266,6 +195,18 @@ public class Driver {
         
         
     }
+    
+    public int minDistance(int path_array[], Boolean sptSet[])   { 
+        // Initialize min value 
+        int min = Integer.MAX_VALUE, min_index = -1; 
+        for (int v = 0; v < matriz2[0].length; v++) 
+            if (sptSet[v] == false && path_array[v] <= min) { 
+                min = path_array[v]; 
+                min_index = v; 
+            } 
+   
+        return min_index; 
+    } 
     
     
 }

@@ -34,9 +34,8 @@ public class SamancitoDelivery {
         Grafo grafo;
         //Cargar ca= new Cargar();
         mostrarG mostrar;
-        
-
         Cliente clientes;
+        Driver drive;
 
         
         Base_de_Datos bdatos= new Base_de_Datos();
@@ -48,8 +47,11 @@ public class SamancitoDelivery {
         //Grafo obtenido de leer la base de datos. 
         grafo=bdatos.getGrafo();
         
-        
-        grafo.ImprimirMatriz();
+        drive= new Driver(grafo,pedidos);
+        drive.mostrarPedidos();
+        drive.RutaMcortaDijkstra();
+        //drive.rutaMcortaFloydM();
+        //grafo.ImprimirMatriz();
         //clientes = new Cliente(grafo.getLnodos(), grafo);
         
         //clientes.recorrerLista();
