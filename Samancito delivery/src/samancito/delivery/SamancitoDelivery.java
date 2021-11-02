@@ -30,7 +30,7 @@ public class SamancitoDelivery {
         ListDatos pedidos;
         Grafo grafo;
         mostrarG mostrar;
-        Driver driv;
+        
         
         Base_de_Datos bdatos= new Base_de_Datos();
         
@@ -42,16 +42,12 @@ public class SamancitoDelivery {
         
         
         
-        driv=new Driver(grafo,pedidos);
-        driv.mostrarPedidos();
         
-        driv.RutaMcortaDijkstra();
-        //mostrar= new mostrarG(grafo);
         
-        //driv.rutaMcortaFloydM();
         
-        //grafo.ImprimirMatriz();
-        driv.mostrarPedidos();
+        
+        grafo.ImprimirMatriz();
+
         
         
         
