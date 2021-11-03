@@ -57,6 +57,19 @@ public class ListDatos {
         size++;
     }
     
+    public void addAtTheEnd(String [] l) { //Agrega un nodo al inicio de la lista
+        NodoArreglo node = new NodoArreglo(l);
+        node.setNumOrden(this.size+1);
+        if (this.isEmpty()) {
+            this.first = this.last = node;
+        } else {
+            this.last.setPrevious(node);
+            node.setNext(this.last);
+            this.last = node;
+        }
+        size++;
+    }
+    
     public void printList() { //Imprime la lista
         NodoArreglo node = this.first;
         String list = "";
