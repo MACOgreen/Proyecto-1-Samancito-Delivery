@@ -80,6 +80,7 @@ public class ListDatos {
                 temp=temp.getNext(); //Posicion del nodo que quiero eliminar
                 i++;      
             }
+            System.out.println(temp);
             temp2.setNext(temp.getNext()); //Modifico el enlace del nodo anterior para que se salte el nodo que quiero eliminar.
             size--;
         }    

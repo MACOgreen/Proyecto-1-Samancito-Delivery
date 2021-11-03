@@ -11,6 +11,8 @@ import ClasesGrafo.Nodos;
 import Lectura.ListDatos;
 import Lectura.NodoArreglo;
 import java.util.Arrays;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Driver {
     int[] resultado;
@@ -32,15 +34,18 @@ public class Driver {
         this.pedidos = pedidos;
     }
     
-    public void mostrarPedidos(){
+    public String mostrarPedidos(){
+        String resultado="";
         nodo=pedidos.getFirst();
         System.out.println("Pedidos:  ");
        
         while(nodo!=null){
             System.out.println("Numero de orden: "+ nodo.getNumOrden() + " ,Orden: " + nodo.getNumber()[2]+", Nodo destino: "+nodo.getNumber()[0] );
+            resultado+=" Numero de orden: "+ nodo.getNumOrden() + " ,Orden: " + nodo.getNumber()[2]+", Nodo destino: "+nodo.getNumber()[0]+" || ";
             nodo=nodo.getNext();
         }
         
+        return resultado;
     }
     
     public void copiarMatriz(){
@@ -63,6 +68,9 @@ public class Driver {
     
     
     public void RutaMcortaDijkstra(){
+        
+        
+        
         copiarMatriz();
         int[] etiqueta= new int[2];
         int posicion=0;       /////Para eliminar de la lista
@@ -71,7 +79,10 @@ public class Driver {
         nodo=pedidos.getFirst();
         
         //El usuario seleciona el numero de orden
-        numeroOrden=3;
+        
+        
+        numeroOrden=Integer.parseInt(JOptionPane.showInputDialog("Seleciona el numero de pedido que quiere entregar "));
+        
         //
         
         //Proceso para identifcar nodo origen y destino
@@ -122,7 +133,7 @@ public class Driver {
     
         
         System.out.println("La ruta más corta es de: "+ path_array[destino] +" kilometros.");
-            
+        JOptionPane.showMessageDialog(null,"La ruta más corta es de: "+ path_array[destino] +" kilometros." );
         
         
     }  
@@ -136,7 +147,7 @@ public class Driver {
         int contador=0;
         int distancia=0;
         //El usuario seleciona el numero de orden
-        numeroOrden=2;
+        numeroOrden=Integer.parseInt(JOptionPane.showInputDialog("Seleciona el numero de pedido que quiere entregar "));
         //
         
         //Proceso para identifcar nodo origen y destino
@@ -147,6 +158,7 @@ public class Driver {
             if(nodo.getNumOrden()==numeroOrden){
                 ori=nodo.getNumber()[1];
                 desti=nodo.getNumber()[0];
+                break;
             }
             posicion++;
             nodo=nodo.getNext();
@@ -192,7 +204,7 @@ public class Driver {
         
         
         System.out.println("La ruta más corta es de: "+ matriz3[origen][destino] +" kilometros.");
-        
+        JOptionPane.showMessageDialog(null,"La ruta más corta es de: "+ matriz3[origen][destino] +" kilometros." );
         
     }
     

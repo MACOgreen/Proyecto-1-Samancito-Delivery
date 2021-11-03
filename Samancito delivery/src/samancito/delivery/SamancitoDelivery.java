@@ -47,10 +47,11 @@ public class SamancitoDelivery {
         //Grafo obtenido de leer la base de datos. 
         grafo=bdatos.getGrafo();
         
+        
         drive= new Driver(grafo,pedidos);
         drive.mostrarPedidos();
-        drive.RutaMcortaDijkstra();
-        //drive.rutaMcortaFloydM();
+        //drive.RutaMcortaDijkstra();
+        drive.rutaMcortaFloydM();
         //grafo.ImprimirMatriz();
         //clientes = new Cliente(grafo.getLnodos(), grafo);
         
