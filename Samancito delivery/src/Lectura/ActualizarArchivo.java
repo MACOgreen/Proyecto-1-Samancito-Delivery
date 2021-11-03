@@ -109,7 +109,7 @@ public class ActualizarArchivo {
                 String nuevo="";
                 for(int i=0;i<grafo.getLnodos().getSize();i++){
                     if(!aux.getDistancias()[i].equals("0")){
-                        nuevo+= aux.getInformacion()[0]+","+Integer.toString(i) +","+aux.getDistancias()[i];
+                        nuevo+= aux.getInformacion()[0]+","+ grafo.getLnodos().Obtener(i).getInformacion()[0] +","+aux.getDistancias()[i];
                         pw.append(nuevo);
                         System.out.println(nuevo);
                         pw.append("\n");
