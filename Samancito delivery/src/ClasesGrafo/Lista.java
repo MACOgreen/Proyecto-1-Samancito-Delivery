@@ -129,6 +129,7 @@ public class Lista {
         }
     }
 
+
     /**
      * Description: Procedimiento para modificar cualquiqer elemento en la
      * lista.
@@ -194,7 +195,7 @@ public class Lista {
         return temp;
     }
 
-    public void printlista() {
+    public void printclientes() {
         Nodos temp = first;
         String tipo = "Cliente";
 
@@ -205,6 +206,25 @@ public class Lista {
         while (temp != null) {
             if (temp.getTipo() == "Cliente") {
                 System.out.println(temp.getInformacion()[0] + " ------> " + temp.getInformacion()[1] + " " + temp.getInformacion()[2]);
+                System.out.println("\n");
+            }
+            temp = temp.getNext();
+        }
+
+    }
+    
+    
+    public void printrestaurantes() {
+        Nodos temp = first;
+        String tipo = "Restaurante";
+
+        if (this.isEmpty()) {
+            System.out.println("La lista esta vacia");
+        }
+
+        while (temp != null) {
+            if (temp.getTipo() == "Restaurante") {
+                System.out.println(temp.getInformacion()[0] + " ----> " + temp.getInformacion()[1]);
                 System.out.println("\n");
             }
             temp = temp.getNext();

@@ -8,6 +8,7 @@ import ClasesGrafo.Recorridos;
 import Lectura.*;
 
 import Mostrargrafo.mostrarG;
+import Roles.Administrador;
 import Roles.Driver;
 
 import Roles.Cliente;
@@ -36,6 +37,7 @@ public class SamancitoDelivery {
         mostrarG mostrar;
         Cliente clientes;
         Driver drive;
+        Administrador administrador;
 
         
         Base_de_Datos bdatos= new Base_de_Datos();
@@ -53,9 +55,11 @@ public class SamancitoDelivery {
         //drive.RutaMcortaDijkstra();
         drive.rutaMcortaFloydM();
         //grafo.ImprimirMatriz();
-        //clientes = new Cliente(grafo.getLnodos(), grafo);
+       //clientes = new Cliente(grafo.getLnodos(), grafo, pedidos);
         
         //clientes.recorrerLista();
+        administrador = new Administrador(grafo.getLnodos(), grafo);
+        administrador.inicio_administrador();
         
         
         
