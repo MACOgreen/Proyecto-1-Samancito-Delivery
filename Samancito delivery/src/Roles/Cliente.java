@@ -20,10 +20,12 @@ public class Cliente {
         this.pedidos = pedidos;
     }
 
-    public void nuevo_pedido(ListDatos pedidos, String numero_id, String letra_id, Lista platos_total) {
-        //
-        
-        //pedidos.addAtTheEnd(pedido_final);
+    public void nuevo_pedido(ListDatos pedidos, String numero_id, String letra_id, String platos_total) {
+        String[] pedido_final = new String[3];
+        pedido_final[0] = numero_id;
+        pedido_final[1] = letra_id;
+        pedido_final[2] = platos_total;
+        //pedidos.agregar_al_final(pedido_final);
         
     }
 
@@ -192,7 +194,7 @@ public class Cliente {
                     }
 
                     int n = 1;
-                    Lista platos_total = new Lista();
+                    String platos_total = "";
                     while (n == 1) {
 
                         System.out.println("Indique el numero del plato que desea seleccionar");
@@ -204,12 +206,12 @@ public class Cliente {
                         String seleccion2 = "";
                         
                         seleccion2 = JOptionPane.showInputDialog("Indique la cantidad que desea pedir");
-
-                        String[] platos = new String[2];
-                        platos[0] = seleccion2;
-                        platos[1] = l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1];
                         
-                        platos_total.addAtTheEnd("Pedido", platos);
+                        if (platos_total == "") {
+                            platos_total = seleccion2 +"-"+ l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1];
+                        } else {
+                            platos_total = platos_total + "/" + seleccion2 +"-"+ l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1];
+                        }
 
                         System.out.println("Indique con una A si desea agregar otro plato B para terminar pedido");
 
