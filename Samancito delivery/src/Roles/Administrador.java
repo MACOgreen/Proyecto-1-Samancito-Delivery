@@ -10,6 +10,7 @@ import ClasesGrafo.Lista;
 import ClasesGrafo.Nodos;
 import java.util.Arrays;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -59,11 +60,11 @@ public class Administrador {
         System.out.println("Indique la letra para identificar el local: ");
         String letra = "";
         Scanner entradEscaner = new Scanner(System.in);
-        letra = entradEscaner.nextLine();
+        letra =JOptionPane.showInputDialog("Indique la letra para identificar el local:");
         System.out.println("Indique el nombre del local");
         String nombre = "";
-        Scanner entraEscaner = new Scanner(System.in);
-        nombre = entraEscaner.nextLine();
+        
+        nombre = JOptionPane.showInputDialog("Indique el nombre del local");
         
         int i = 0;
         int n = 1;
@@ -72,8 +73,8 @@ public class Administrador {
             System.out.println("MENU");
             System.out.println("Escriba el plato que desea agregar: ");
             String seleccion = "";
-            Scanner scaner = new Scanner(System.in); //Creación de un objeto Scanner
-            seleccion = scaner.nextLine();
+            
+            seleccion = JOptionPane.showInputDialog("Escriba el plato que desea agregar: ");
 
             platos[i] = seleccion;
 
@@ -81,7 +82,7 @@ public class Administrador {
 
             Scanner entradaner = new Scanner(System.in); //Creación de un objeto Scanner
             String o = "";
-            o = entradaner.nextLine();
+            o = JOptionPane.showInputDialog("Indique con una A si desea agregar otro plato o  B para terminar menu");
             System.out.println(o);
 
             if (o.equals("A")) {
@@ -117,13 +118,13 @@ public class Administrador {
 
         System.out.println("Indique un nodo: ");
         String nodo1 = "";
-        Scanner entEscaner = new Scanner(System.in);
-        nodo1 = entEscaner.nextLine();
+        
+        nodo1 = JOptionPane.showInputDialog("Indique un nodo");
         System.out.println("");
         System.out.println("Indique la distancia: ");
         String distancia1 = "";
-        Scanner entscaner = new Scanner(System.in);
-        distancia1 = entscaner.nextLine();
+        
+        distancia1 = JOptionPane.showInputDialog("Indique la distancia");
 
         String[] ruta1 = new String[3];
         ruta1[0] = letra;
@@ -134,13 +135,13 @@ public class Administrador {
 
         System.out.println("Indique un nodo: ");
         String nodo2 = "";
-        Scanner enEscaner = new Scanner(System.in);
-        nodo2 = enEscaner.nextLine();
+       
+        nodo2 = JOptionPane.showInputDialog("Indique un nodo");
         System.out.println("");
         System.out.println("Indique la distancia: ");
         String distancia2 = "";
-        Scanner entsaner = new Scanner(System.in);
-        distancia2 = entsaner.nextLine();
+        
+        distancia2 = JOptionPane.showInputDialog("Indique la distancia");
 
         String[] ruta2 = new String[3];
         ruta2[0] = letra;

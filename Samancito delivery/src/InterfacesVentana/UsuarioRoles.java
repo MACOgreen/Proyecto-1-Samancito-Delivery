@@ -5,18 +5,19 @@
  */
 package InterfacesVentana;
 
-/**
- *
- * @author mani
- */
+import Roles.*;
+import  ClasesGrafo.*;
 public class UsuarioRoles extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UsuarioRoles
-     */
+    Grafo g;
+    Lista lndos;
+    Administrador admi;
     public UsuarioRoles() {
         initComponents();
         this.setLocationRelativeTo(null);
+        PrimeraVentana venta1= new PrimeraVentana();
+        this.g=venta1.grafo;
+        this.lndos=g.getLnodos();
     }
 
     /**
@@ -121,6 +122,8 @@ public class UsuarioRoles extends javax.swing.JFrame {
 
     private void BotonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAdministradorActionPerformed
         // TODO add your handling code here:
+        admi= new Administrador(lndos,g);
+        admi.agregar_locales();
     }//GEN-LAST:event_BotonAdministradorActionPerformed
 
     private void BotonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegresarActionPerformed
@@ -136,6 +139,8 @@ public class UsuarioRoles extends javax.swing.JFrame {
 
     private void BotoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotoClienteActionPerformed
         // TODO add your handling code here:
+        VentanaCliente ven= new VentanaCliente();
+        ven.setVisible(true);
     }//GEN-LAST:event_BotoClienteActionPerformed
 
     /**

@@ -6,6 +6,7 @@ import ClasesGrafo.Lista;
 import ClasesGrafo.Nodos;
 import Lectura.ListDatos;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 public class Cliente {
 
@@ -34,28 +35,30 @@ public class Cliente {
         Nodos aux;
         Lista b = new Lista();
 
-        System.out.println("Indique con una A si es un nuevo usuario o con una B si esta registrado");
+        //System.out.println("Indique con una A si es un nuevo usuario o con una B si esta registrado");
 
         String opcion = "";
 
-        Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
+        //Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
 
-        opcion = entradaEscaner.nextLine();
+        opcion = JOptionPane.showInputDialog("Indique con una A si es un nuevo usuario o con una B si esta registrado");
+        
         System.out.println(opcion);
 
         if ("A".equals(opcion)) {
             System.out.println("Indique su nombre");
             String nombre = "";
-            Scanner entradEscaner = new Scanner(System.in);
-            nombre = entradEscaner.nextLine();
+            
+            nombre = JOptionPane.showInputDialog("Indique su nombre");
             System.out.println("Indique su apellido");
             String apellido = "";
-            Scanner entraEscaner = new Scanner(System.in);
-            apellido = entraEscaner.nextLine();
+            
+            apellido = JOptionPane.showInputDialog("Indique su apellido");
+            
             System.out.println("Indique su cedula");
             String cedula = "";
-            Scanner entrEscaner = new Scanner(System.in);
-            cedula = entrEscaner.nextLine();
+            
+            cedula = JOptionPane.showInputDialog("Indique su cedula");
 
             String[] arr = new String[4];
             String tipo = "Cliente";
@@ -88,12 +91,12 @@ public class Cliente {
             System.out.println("Indique un nodo: ");
             String nodo1 = "";
             Scanner entEscaner = new Scanner(System.in);
-            nodo1 = entEscaner.nextLine();
+            nodo1 = JOptionPane.showInputDialog("Indique un nodo: ");
             System.out.println("");
             System.out.println("Indique la distancia: ");
             String distancia1 = "";
-            Scanner entscaner = new Scanner(System.in);
-            distancia1 = entscaner.nextLine();
+            
+            distancia1 = JOptionPane.showInputDialog("Indique la distancia");
 
             String[] ruta1 = new String[3];
             ruta1[0] = Integer.toString(numero);
@@ -105,12 +108,12 @@ public class Cliente {
             System.out.println("Indique un nodo: ");
             String nodo2 = "";
             Scanner enEscaner = new Scanner(System.in);
-            nodo2 = enEscaner.nextLine();
+            nodo2 = JOptionPane.showInputDialog("Indique un nodo: ");
             System.out.println("");
             System.out.println("Indique la distancia: ");
             String distancia2 = "";
             Scanner entsaner = new Scanner(System.in);
-            distancia2 = entsaner.nextLine();
+            distancia2 =JOptionPane.showInputDialog("Indique la distancia");
 
             String[] ruta2 = new String[3];
             ruta2[0] = Integer.toString(numero);
@@ -122,30 +125,12 @@ public class Cliente {
             g.CrearMatrizAD();
             g.ImprimirMatriz();
 
-            //arr[4] = direccion;
-            /*
-            addAtTheEnd(tipo, arr);
-            last = last.setNext();
-            if ("Cliente".equals(last.getTipo())) {
-                System.out.println(last.getInformacion()[0] + " ------> " + last.getInformacion()[1] + " " + last.getInformacion()[2]);
-                System.out.println("Usuario registrado con exito");
-            }
-            recorrerLista();
-
-            /*
-        System.out.println ("Por favor introduzca el numero correspondiente a sus datos:");
-
-        String entradaTeclado = "";
-
-        //Scanner entradaEscaner = new Scanner (System.in); //Creación de un objeto Scanner
-
-        entradaTeclado = entradaEscaner.nextLine ();
-             */
+           
         } else {
             System.out.println("Indique el numero correspondiente a sus datos");
             String numero_id = "";
-            Scanner entraEscaner = new Scanner(System.in); //Creación de un objeto Scanner
-            numero_id = entraEscaner.nextLine();
+            
+            numero_id = JOptionPane.showInputDialog("Indique el numero correspondiente a sus datos");
             Boolean e = false;
             while (temp != null) {
                 if ("Cliente".equals(temp.getTipo())) {
@@ -179,9 +164,9 @@ public class Cliente {
 
                 String letra_id = "";
 
-                Scanner enEscaner = new Scanner(System.in); //Creación de un objeto Scanner
+                
 
-                letra_id = enEscaner.nextLine();
+                letra_id = JOptionPane.showInputDialog("Indique la letra del restaurante que quiere seleccionar");
 
                 Boolean r = false;
 
@@ -212,13 +197,13 @@ public class Cliente {
 
                         System.out.println("Indique el numero del plato que desea seleccionar");
                         String seleccion = "";
-                        Scanner scaner = new Scanner(System.in); //Creación de un objeto Scanner
-                        seleccion = scaner.nextLine();
+                       
+                        seleccion = JOptionPane.showInputDialog("Indique el numero del plato que desea seleccionar");
 
                         System.out.println("Indique la cantidad que desea pedir");
                         String seleccion2 = "";
-                        Scanner caner = new Scanner(System.in); //Creación de un objeto Scanner
-                        seleccion2 = caner.nextLine();
+                        
+                        seleccion2 = JOptionPane.showInputDialog("Indique la cantidad que desea pedir");
 
                         String[] platos = new String[2];
                         platos[0] = seleccion2;
@@ -228,9 +213,9 @@ public class Cliente {
 
                         System.out.println("Indique con una A si desea agregar otro plato B para terminar pedido");
 
-                        Scanner entradaner = new Scanner(System.in); //Creación de un objeto Scanner
+                        
                         String o = "";
-                        o = entradaner.nextLine();
+                        o = JOptionPane.showInputDialog("Indique con una A si desea agregar otro plato B para terminar pedido");
                         System.out.println(o);
 
                         if (o.equals("A")) {

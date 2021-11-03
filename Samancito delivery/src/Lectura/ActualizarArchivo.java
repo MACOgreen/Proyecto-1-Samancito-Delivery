@@ -42,7 +42,7 @@ public class ActualizarArchivo {
             w= new FileWriter(file);
             bw= new BufferedWriter(w);
             PrintWriter pw= new PrintWriter(bw);
-           pw.print("Restaurates");
+           pw.print("Restaurantes");
            pw.append("\n");
            while(aux!=null){
                if("Restaurante".equals(aux.getTipo())){
