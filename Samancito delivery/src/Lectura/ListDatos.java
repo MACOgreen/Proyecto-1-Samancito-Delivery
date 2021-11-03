@@ -70,6 +70,7 @@ public class ListDatos {
         size++;
     }
     
+    
     public void printList() { //Imprime la lista
         NodoArreglo node = this.first;
         String list = "";

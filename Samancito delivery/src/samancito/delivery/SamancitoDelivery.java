@@ -54,11 +54,11 @@ public class SamancitoDelivery {
         drive.RutaMcortaDijkstra();
         //drive.rutaMcortaFloydM();
         //grafo.ImprimirMatriz();
-       //clientes = new Cliente(grafo.getLnodos(), grafo, pedidos);
+        clientes = new Cliente(grafo.getLnodos(), grafo, pedidos);
         
-        //clientes.recorrerLista();
-        administrador = new Administrador(grafo.getLnodos(), grafo);
-        administrador.inicio_administrador();
+        clientes.recorrerLista();
+        //administrador = new Administrador(grafo.getLnodos(), grafo);
+        //administrador.inicio_administrador();
         
         
         

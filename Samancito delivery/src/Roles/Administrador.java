@@ -75,7 +75,8 @@ public class Administrador {
 
         int i = 0;
         int n = 1;
-        String[] platos = new String[2];
+        String platos_menu = "";
+
         while (n == 1) {
             System.out.println("MENU");
             System.out.println("Escriba el plato que desea agregar: ");
@@ -83,7 +84,11 @@ public class Administrador {
             Scanner scaner = new Scanner(System.in); //Creación de un objeto Scanner
             seleccion = scaner.nextLine();
 
-            platos[i] = seleccion;
+            if (platos_menu == "") {
+                platos_menu = seleccion;
+            } else {
+                platos_menu = platos_menu + "/" + seleccion;
+            }
 
             System.out.println("Indique con una A si desea agregar otro plato B para terminar menu");
 
@@ -106,7 +111,7 @@ public class Administrador {
 
         arr[0] = letra;
         arr[1] = nombre;
-        arr[2] = Arrays.toString(platos);
+        arr[2] = platos_menu;
 
         a.addAtTheEnd(tipo, arr);
         aux = a.getFirst();
@@ -240,22 +245,20 @@ public class Administrador {
                 System.out.println((i + 1) + " ----> " + l.getInformacion()[2].split("/")[i]);
             }
 
-            
+            System.out.println("Indique el nombre del plato que desea agregar");
+            String seleccion = "";
+            Scanner scaner = new Scanner(System.in); //Creación de un objeto Scanner
+            seleccion = scaner.nextLine();
 
-                System.out.println("Indique el nombre del plato que desea agregar");
-                String seleccion = "";
-                Scanner scaner = new Scanner(System.in); //Creación de un objeto Scanner
-                seleccion = scaner.nextLine();
-                
-                String platos = l.getInformacion()[2] + "/"+seleccion;
-                l.getInformacion()[2] = platos;
+            String platos = l.getInformacion()[2] + "/" + seleccion;
+            l.getInformacion()[2] = platos;
 
-            
             System.out.println(l.getInformacion()[2]);
-            
+
+        }
     }
-}
-    public void eliminar_plato(){
+
+    public void eliminar_plato() {
         Nodos l = a.getFirst();
         System.out.println("Lista de restaurantes");
         a.printrestaurantes();
@@ -291,26 +294,43 @@ public class Administrador {
                 System.out.println((i + 1) + " ----> " + l.getInformacion()[2].split("/")[i]);
             }
 
+            String platos_finales = "";
+            int n = 1;
+            while (n == 1) {
+
                 System.out.println("Indique el numero del plato que desea eliminar");
                 String seleccion = "";
                 Scanner scaner = new Scanner(System.in); //Creación de un objeto Scanner
                 seleccion = scaner.nextLine();
-                
+
                 String platos = l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1];
-                
-                String platos_finales = "";
-                
+
                 for (int i = 0; i < l.getInformacion()[2].split("/").length; i++) {
-                    if (!l.getInformacion()[2].split("/")[i].equals(l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1])){
-                        if (platos_finales == ""){
-                        platos_finales = l.getInformacion()[2].split("/")[i];}
-                        else {
-                           platos_finales = platos_finales + "/" + l.getInformacion()[2].split("/")[i];
+                    if (!l.getInformacion()[2].split("/")[i].equals(l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1])) {
+                        if (platos_finales == "") {
+                            platos_finales = l.getInformacion()[2].split("/")[i];
+                        } else {
+                            platos_finales = platos_finales + "/" + l.getInformacion()[2].split("/")[i];
                         }
                     }
                 }
-                
-                l.getInformacion()[2] = platos_finales;
-    }
+
+                System.out.println("Indique con una A si desea agregar otro plato B para terminar pedido");
+
+                Scanner entradaner = new Scanner(System.in); //Creación de un objeto Scanner
+                String o = "";
+                o = entradaner.nextLine();
+                System.out.println(o);
+
+                if (o.equals("A")) {
+                    n = 1;
+                } else {
+                    n = 0;
+                }
+
+            }
+
+            l.getInformacion()[2] = platos_finales;
+        }
     }
 }

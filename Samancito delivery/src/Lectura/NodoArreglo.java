@@ -18,7 +18,7 @@ public class NodoArreglo {
         this.previous = null;
         this.numOrden=0;
     }
-
+        
     public String [] getNumber() {
         return l;
     }
