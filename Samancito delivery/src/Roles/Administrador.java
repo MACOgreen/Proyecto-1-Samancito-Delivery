@@ -298,18 +298,19 @@ public class Administrador {
                 
                 String platos = l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1];
                 
-                String platos_finales = null;
+                String platos_finales = "";
                 
                 for (int i = 0; i < l.getInformacion()[2].split("/").length; i++) {
-                    if (l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1] != l.getInformacion()[2].split("/")[i])
-                    platos_finales = l.getInformacion()[2].split("/")[i];
+                    if (!l.getInformacion()[2].split("/")[i].equals(l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1])){
+                        if (platos_finales == ""){
+                        platos_finales = l.getInformacion()[2].split("/")[i];}
+                        else {
+                           platos_finales = platos_finales + "/" + l.getInformacion()[2].split("/")[i];
+                        }
+                    }
                 }
                 
                 l.getInformacion()[2] = platos_finales;
-                
-            
-            System.out.println(l.getInformacion()[2]);
-            
     }
     }
 }
