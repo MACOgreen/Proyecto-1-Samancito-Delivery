@@ -184,6 +184,7 @@ public class VentanaDriver extends javax.swing.JFrame {
         try{
             dri.RutaMcortaDijkstra();
             Textopedidos.setText(dri.mostrarPedidos());
+            JOptionPane.showMessageDialog(null, "Oparacion realizada con exito. Regrese a la primera ventana para guardar los cambios.");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Ese numero de orden no se encuentra registrado." );
         }
@@ -194,6 +195,7 @@ public class VentanaDriver extends javax.swing.JFrame {
         try{
             dri.rutaMcortaFloydM();
             Textopedidos.setText(dri.mostrarPedidos());
+            JOptionPane.showMessageDialog(null, "Oparacion realizada con exito. Regrese a la primera ventana para guardar los cambios.");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Ese numero de orden no se encuentra registrado." );
         }

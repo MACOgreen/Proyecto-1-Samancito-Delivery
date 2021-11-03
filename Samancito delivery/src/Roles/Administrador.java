@@ -39,9 +39,9 @@ public class Administrador {
 
         String opcion = "";
 
-        Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
+        
 
-        opcion = entradaEscaner.nextLine();
+        
 
         if ("1".equals(opcion)) {
             agregar_locales();
@@ -154,6 +154,187 @@ public class Administrador {
         g.ImprimirMatriz();
         
         a.printrestaurantes();
+       
         
     }
+    public void agregar_ruta() {
+        a.printNodos();
+
+        System.out.println("Indique la letra/numero para identificar la ruta: ");
+        String letra = "";
+        
+        letra = JOptionPane.showInputDialog("Indique la letra/numero para identificar la ruta: ");
+
+        System.out.println("Indique un nodo: ");
+        String nodo1 = "";
+        
+        nodo1 = JOptionPane.showInputDialog("Indique un nodo");
+        System.out.println("");
+        System.out.println("Indique la distancia: ");
+        String distancia1 = "";
+        
+        distancia1 = JOptionPane.showInputDialog("Indique ua distancia");
+
+        String[] ruta1 = new String[3];
+        ruta1[0] = letra;
+        ruta1[1] = nodo1;
+        ruta1[2] = distancia1;
+
+        g.rellenarFila(ruta1);
+
+        System.out.println("Indique un nodo: ");
+        String nodo2 = "";
+        
+        nodo2 = JOptionPane.showInputDialog("Indique un nodo");
+        System.out.println("");
+        System.out.println("Indique la distancia: ");
+        String distancia2 = "";
+        
+        distancia2 = JOptionPane.showInputDialog("Indique una distancia");
+
+        String[] ruta2 = new String[3];
+        ruta2[0] = letra;
+        ruta2[1] = nodo2;
+        ruta2[2] = distancia2;
+
+        g.rellenarFila(ruta2);
+
+        g.CrearMatrizAD();
+
+        System.out.println("Ruta guardada con exito");
+        
+    }
+    
+    
+    
+     public void agregar_plato() {
+        Nodos l = a.getFirst();
+        System.out.println("Lista de restaurantes");
+        a.printrestaurantes();
+
+        System.out.println("Indique la letra del restaurante que quiere seleccionar");
+
+        String letra_id = "";
+
+        
+
+        letra_id = JOptionPane.showInputDialog("Indique la letra del restaurante que quiere selecionar.");
+
+        Boolean r = false;
+
+        while (l != null) {
+            if ("Restaurante".equals(l.getTipo())) {
+                if (letra_id.equals(l.getInformacion()[0])) {
+                    r = true;
+                    break;
+                } else {
+                    r = false;
+
+                }
+            }
+            l = l.getNext();
+
+        }
+
+        if (r = true) {
+            System.out.println(l.getInformacion()[0] + " ------> " + l.getInformacion()[1]);
+
+            for (int i = 0; i < l.getInformacion()[2].split("/").length; i++) {
+                System.out.println((i + 1) + " ----> " + l.getInformacion()[2].split("/")[i]);
+            }
+
+            System.out.println("Indique el nombre del plato que desea agregar");
+            String seleccion = "";
+            
+            seleccion = JOptionPane.showInputDialog("Indique el nombre del plato que desea agregar");
+
+            String platos = l.getInformacion()[2] + "/" + seleccion;
+            l.getInformacion()[2] = platos;
+
+            System.out.println(l.getInformacion()[2]);
+
+        }
+        
+    }
+     
+    public void eliminar_plato() {
+        Nodos l = a.getFirst();
+        System.out.println("Lista de restaurantes");
+        a.printrestaurantes();
+
+        System.out.println("Indique la letra del restaurante que quiere seleccionar");
+
+        String letra_id = "";
+
+        
+
+        letra_id = JOptionPane.showInputDialog("Indique la letrar del restaurante que quiere selecionar");
+
+        Boolean r = false;
+
+        while (l != null) {
+            if ("Restaurante".equals(l.getTipo())) {
+                if (letra_id.equals(l.getInformacion()[0])) {
+                    r = true;
+                    break;
+                } else {
+                    r = false;
+
+                }
+            }
+            l = l.getNext();
+
+        }
+
+        if (r = true) {
+            System.out.println(l.getInformacion()[0] + " ------> " + l.getInformacion()[1]);
+
+            for (int i = 0; i < l.getInformacion()[2].split("/").length; i++) {
+                System.out.println((i + 1) + " ----> " + l.getInformacion()[2].split("/")[i]);
+            }
+
+            String platos_finales = "";
+            int n = 1;
+            while (n == 1) {
+
+                System.out.println("Indique el numero del plato que desea eliminar");
+                String seleccion = "";
+                
+                seleccion = JOptionPane.showInputDialog("Indique el numero del plato que desea eliminar");
+
+                String platos = l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1];
+
+                for (int i = 0; i < l.getInformacion()[2].split("/").length; i++) {
+                    if (!l.getInformacion()[2].split("/")[i].equals(l.getInformacion()[2].split("/")[Integer.parseInt(seleccion) - 1])) {
+                        if (platos_finales == "") {
+                            platos_finales = l.getInformacion()[2].split("/")[i];
+                        } else {
+                            platos_finales = platos_finales + "/" + l.getInformacion()[2].split("/")[i];
+                        }
+                    }
+                }
+
+                System.out.println("Indique con una A si desea agregar otro plato B para terminar pedido");
+
+                
+                String o = "";
+                o = JOptionPane.showInputDialog("Indique con una A si desea agregar otro plato o  B para terminar pedido");
+                System.out.println(o);
+
+                if (o.equals("A")) {
+                    n = 1;
+                } else {
+                    n = 0;
+                }
+
+            }
+
+            l.getInformacion()[2] = platos_finales;
+        }
+        
+    }
+     
+     
+    
+    
 }

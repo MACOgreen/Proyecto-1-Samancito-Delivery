@@ -122,8 +122,8 @@ public class UsuarioRoles extends javax.swing.JFrame {
 
     private void BotonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAdministradorActionPerformed
         // TODO add your handling code here:
-        admi= new Administrador(lndos,g);
-        admi.agregar_locales();
+        VentanaAdministrador venta2= new VentanaAdministrador();
+        venta2.setVisible(true);
     }//GEN-LAST:event_BotonAdministradorActionPerformed
 
     private void BotonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegresarActionPerformed

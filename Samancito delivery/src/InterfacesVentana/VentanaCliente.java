@@ -9,6 +9,7 @@ import ClasesGrafo.*;
 import ClasesGrafo.*;
 import Lectura.*;
 import Roles.*;
+import javax.swing.JOptionPane;
 public class VentanaCliente extends javax.swing.JFrame {
 
     Grafo g;
@@ -164,6 +165,7 @@ public class VentanaCliente extends javax.swing.JFrame {
     private void BotonNuevoCLienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonNuevoCLienteActionPerformed
         // TODO add your handling code here:
         cliente.recorrerLista();
+        JOptionPane.showMessageDialog(null, "Oparacion realizada con exito. Regrese a la primera ventana para guardar los cambios.");
     }//GEN-LAST:event_BotonNuevoCLienteActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
