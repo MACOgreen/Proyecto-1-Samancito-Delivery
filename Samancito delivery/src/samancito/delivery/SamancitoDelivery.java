@@ -38,7 +38,7 @@ public class SamancitoDelivery {
         Cliente clientes;
         Driver drive;
         Administrador administrador;
-
+        NodoArreglo nau;
         
         Base_de_Datos bdatos= new Base_de_Datos();
         
@@ -49,17 +49,30 @@ public class SamancitoDelivery {
         //Grafo obtenido de leer la base de datos. 
         grafo=bdatos.getGrafo();
         
-        
-        drive= new Driver(grafo,pedidos);
-        drive.mostrarPedidos();
+        nau=pedidos.getFirst();
+        System.out.println(nau);
+            while(nau!=null){
+                String nuevo="";
+                for(int i=0;i<3;i++){
+                    if(i==2){
+                        nuevo += nau.getNumber()[i];
+                    }else{
+                       nuevo += nau.getNumber()[i]+",";
+                    }
+                }
+                System.out.println(nuevo);
+                nau=nau.getNext();
+            }
+        //drive= new Driver(grafo,pedidos);
+        //drive.mostrarPedidos();
         //drive.RutaMcortaDijkstra();
-        drive.rutaMcortaFloydM();
+       // drive.rutaMcortaFloydM();
         //grafo.ImprimirMatriz();
        //clientes = new Cliente(grafo.getLnodos(), grafo, pedidos);
         
         //clientes.recorrerLista();
-        administrador = new Administrador(grafo.getLnodos(), grafo);
-        administrador.inicio_administrador();
+        //administrador = new Administrador(grafo.getLnodos(), grafo);
+        //administrador.inicio_administrador();
         
         
         

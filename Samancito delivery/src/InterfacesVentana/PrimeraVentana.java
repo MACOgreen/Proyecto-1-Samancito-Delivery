@@ -24,11 +24,11 @@ public class PrimeraVentana extends javax.swing.JFrame {
     public static  Grafo grafo;
     mostrarG mostrar;
     
-    
+    Base_de_Datos bdatos= new Base_de_Datos();
     public PrimeraVentana() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+           
     }
 
     /**
@@ -74,6 +74,11 @@ public class PrimeraVentana extends javax.swing.JFrame {
 
         BotonActualizar.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         BotonActualizar.setText("Actualizar archivo");
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
 
         BotonMostrarGrafo.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         BotonMostrarGrafo.setText("Mostrar grafo");
@@ -162,7 +167,7 @@ public class PrimeraVentana extends javax.swing.JFrame {
 
     private void BotonCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCargarActionPerformed
         // TODO add your handling code here:
-        Base_de_Datos bdatos= new Base_de_Datos();
+        
         pedidos=bdatos.datos();
         grafo=bdatos.getGrafo();
     }//GEN-LAST:event_BotonCargarActionPerformed
@@ -184,6 +189,12 @@ public class PrimeraVentana extends javax.swing.JFrame {
         UsuarioRoles ventro= new UsuarioRoles();
         ventro.setVisible(true);
     }//GEN-LAST:event_BotonRolesActionPerformed
+
+    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
+        // TODO add your handling code here:
+        
+        ActualizarArchivo actu = new ActualizarArchivo(grafo,pedidos,bdatos);
+    }//GEN-LAST:event_BotonActualizarActionPerformed
 
     /**
      * @param args the command line arguments

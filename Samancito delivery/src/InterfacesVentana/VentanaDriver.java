@@ -9,6 +9,7 @@ import ClasesGrafo.Grafo;
 import ClasesGrafo.Lista;
 import Roles.Driver;
 import Lectura.*;
+import javax.swing.JOptionPane;
 
 public class VentanaDriver extends javax.swing.JFrame {
 
@@ -88,7 +89,7 @@ public class VentanaDriver extends javax.swing.JFrame {
         });
 
         BotonActualizar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        BotonActualizar.setText("Actualizar Pedidos");
+        BotonActualizar.setText("Mostrar Pedidos");
         BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonActualizarActionPerformed(evt);
@@ -180,12 +181,22 @@ public class VentanaDriver extends javax.swing.JFrame {
 
     private void BotonDijkstraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDijkstraActionPerformed
         // TODO add your handling code here:
-        dri.RutaMcortaDijkstra();
+        try{
+            dri.RutaMcortaDijkstra();
+            Textopedidos.setText(dri.mostrarPedidos());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Ese numero de orden no se encuentra registrado." );
+        }
     }//GEN-LAST:event_BotonDijkstraActionPerformed
 
     private void BotonFloydWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFloydWActionPerformed
         // TODO add your handling code here:
-        dri.rutaMcortaFloydM();
+        try{
+            dri.rutaMcortaFloydM();
+            Textopedidos.setText(dri.mostrarPedidos());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Ese numero de orden no se encuentra registrado." );
+        }
     }//GEN-LAST:event_BotonFloydWActionPerformed
 
     /**

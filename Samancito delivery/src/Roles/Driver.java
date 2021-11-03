@@ -41,7 +41,7 @@ public class Driver {
        
         while(nodo!=null){
             System.out.println("Numero de orden: "+ nodo.getNumOrden() + " ,Orden: " + nodo.getNumber()[2]+", Nodo destino: "+nodo.getNumber()[0] );
-            resultado+=" Numero de orden: "+ nodo.getNumOrden() + " ,Orden: " + nodo.getNumber()[2]+", Nodo destino: "+nodo.getNumber()[0]+" || ";
+            resultado+=" Numero de orden: "+ nodo.getNumOrden() + " ,Orden: " + nodo.getNumber()[2]+", Nodo destino: "+nodo.getNumber()[0]+"----";
             nodo=nodo.getNext();
         }
         

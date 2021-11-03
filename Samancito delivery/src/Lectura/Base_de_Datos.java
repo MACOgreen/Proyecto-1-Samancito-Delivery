@@ -12,6 +12,7 @@ public class Base_de_Datos {
     Cargar cargar= new Cargar();  //Para cargar archivo.
     private Grafo grafo;
     File file;
+    private String path;
     
     public void printArreglo(String[] l) { //Imprime la lista
         System.out.println(Arrays.toString(l));
@@ -23,12 +24,13 @@ public class Base_de_Datos {
         String samancito_txt = "";
         try{
             file= cargar.abrirArchivo();
-            
+            path=file.getPath();
             
         }catch(Exception ex){
             
-            String path = "test\\samancito.txt";
-            file = new File(path);   
+            //path = "test\\samancito.txt";
+            //file = new File(getPath());   
+            
         }
         
         
@@ -82,7 +84,7 @@ public class Base_de_Datos {
                             int j = i+1;
                             while (!datos_split[j].equals("Rutas")) {
                                 String[] alldatos = datos_split[j].split(",");
-
+                                System.out.println(alldatos);
                                 pedidos.addAtTheStart(alldatos); 
                                 
 
@@ -131,8 +133,8 @@ public class Base_de_Datos {
         String line;
         String samancito_txt = "";
          
-        String path = "test\\samancito.txt";
-        file = new File(path);   
+        path = "test\\samancito.txt";
+        file = new File(getPath());   
         
         
         
@@ -235,6 +237,13 @@ public class Base_de_Datos {
      */
     public Grafo getGrafo() {
         return grafo;
+    }
+
+    /**
+     * @return the path
+     */
+    public String getPath() {
+        return path;
     }
 
 }
