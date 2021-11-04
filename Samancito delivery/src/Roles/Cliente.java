@@ -25,7 +25,7 @@ public class Cliente {
         pedido_final[0] = numero_id;
         pedido_final[1] = letra_id;
         pedido_final[2] = platos_total;
-        //pedidos.agregar_al_final(pedido_final);
+        pedidos.addAtTheStart(pedido_final);
         
     }
 
