@@ -106,7 +106,7 @@ public class Administrador {
         
         arr[0] = letra;
         arr[1] = nombre;
-        arr[2] = Arrays.toString(platos);
+        arr[2] = platos_menu;
 
         a.addAtTheEnd(tipo, arr);
         aux = a.getFirst();
