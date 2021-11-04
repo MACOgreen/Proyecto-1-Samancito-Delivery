@@ -60,9 +60,7 @@ public class SamancitoDelivery {
         //administrador = new Administrador(grafo.getLnodos(), grafo);
         //administrador.inicio_administrador();
         
-        
-        
-        
+       
         
         
     }

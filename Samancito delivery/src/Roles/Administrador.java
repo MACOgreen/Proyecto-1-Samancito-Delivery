@@ -68,7 +68,7 @@ public class Administrador {
         
         int i = 0;
         int n = 1;
-        String[] platos = new String[2];
+        String platos_menu = "";
         while (n == 1) {
             System.out.println("MENU");
             System.out.println("Escriba el plato que desea agregar: ");
@@ -76,7 +76,11 @@ public class Administrador {
             
             seleccion = JOptionPane.showInputDialog("Escriba el plato que desea agregar: ");
 
-            platos[i] = seleccion;
+            if (platos_menu == "") {
+                platos_menu = seleccion;
+            } else {
+                platos_menu = platos_menu + "/" + seleccion;
+            }
 
             System.out.println("Indique con una A si desea agregar otro plato B para terminar menu");
 
@@ -102,7 +106,7 @@ public class Administrador {
         
         arr[0] = letra;
         arr[1] = nombre;
-        arr[2] = Arrays.toString(platos);
+        arr[2] = platos_menu;
 
         a.addAtTheEnd(tipo, arr);
         aux = a.getFirst();

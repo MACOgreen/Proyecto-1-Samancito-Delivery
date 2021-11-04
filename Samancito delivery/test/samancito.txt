@@ -13,29 +13,29 @@ Clientes
 6,Eduardo,Petardo,4326534
 7,Enrique,Manrique,434543
 Pedidos
-7,D,4-Burger Homero/1-Costillas
-4,B,3-Prosciutto Funghi
-1,C,9-Banquito Burger/6-Aros de Cebolla
-6,E,5-Holy Tempeh/1-Holy Chicken Tenders
 3,A,2-Pizza Margarita/1-Pasticho
+6,E,5-Holy Tempeh/1-Holy Chicken Tenders
+1,C,9-Banquito Burger/6-Aros de Cebolla
+4,B,3-Prosciutto Funghi
+7,D,4-Burger Homero/1-Costillas
 Rutas
 A,1,3
 A,2,2
-B,6,7
-C,5,3
-D,B,1
-D,6,5
-E,A,1
-E,1,1
 1,C,2
 1,5,8
 2,E,2
 2,4,4
-3,7,1
-4,B,6
+C,5,3
 4,3,2
+4,B,6
 5,B,3
 5,E,7
-6,C,6
-6,5,5
+B,6,7
+3,7,1
 7,D,4
+D,B,1
+D,6,5
+6,5,5
+6,C,6
+E,1,1
+E,A,1
